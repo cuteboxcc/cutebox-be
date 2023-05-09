@@ -1,0 +1,124 @@
+
+:root {
+	--white1: #fafaff;
+	--white2: #b3b5c6;
+	--gray1: #212529;
+	--gray2: #35363b;
+	--gray3: #3a3b41;
+	--gray4: #45464e;
+	--gray5: #4d4e56;
+	--gray6: #575861;
+	--gray7: #5d5e67;
+	--gray8: #696a75;
+	--orange1: var(--accent);
+	--orange2: var(--accent);
+	--blue1: #3a9fde;
+	--blue2: #66befe;
+	--blue3: #89caff;
+	--accent: #20c997;
+	--error1: #860000;
+	--error2: #ff9796;
+	--error3: #dd2c2c;
+	--error-link: #01318C;
+	--green1: #94E749;
+	--info-fg: var(--gray1);
+	--info-bg: #b3ddff;
+	--info-link: var(--error-link);
+	--fg: var(--white1);
+	--bg: var(--gray1);
+	--bg-trans: rgba(77, 78, 86, 0.62);
+	--bg-accent: var(--gray5);
+	--fg-accent: var(--accent);
+	--fg-reduced: var(--white2);
+	--border-accent: var(--accent);
+	--link-fg: var(--fg-accent);
+	--role-moderator: var(--accent);
+	--role-admin: var(--accent);
+	--button-bg: var(--accent);
+	--button-fg: var(--gray1);
+	--button-hover-bg: var(--accent);
+	--button-danger-bg: var(--error3);
+	--button-danger-fg: var(--white1);
+	--button-danger-hover-bg: var(--error2);
+	--toot-focus-bg: var(--gray5);
+	--toot-unfocus-bg: var(--gray2);
+	--toot-info-bg: var(--gray4);
+	--no-img-desc-bg: var(--accent);
+	--no-img-desc-fg: var(--gray1);
+	--bg-sensitive: var(--gray1);
+	--boxshadow: 0 0.4rem 1rem -0.1rem rgba(0,0,0,0.15);
+	--boxshadow-border: 0.08rem solid var(--gray1);
+	--avatar-border: var(--accent);
+	--input-bg: var(--gray4);
+	--input-disabled-bg: var(--gray2);
+	--input-border: var(--blue1);
+	--input-error-border: var(--error3);
+	--input-focus-border: var(--accent);
+	--settings-nav-bg: var(--bg);
+	--settings-nav-header-fg: var(--accent);
+	--settings-nav-bg-hover: var(--gray3);
+	--settings-nav-fg-hover: var(--fg);
+	--settings-nav-bg-active: var(--accent);
+	--settings-nav-border-active: var(--info-bg);
+	--settings-nav-fg-active: var(--gray2);
+	--error-fg: var(--error1);
+	--error-bg: var(--error2);
+	--list-entry-bg: var(--gray2);
+	--list-entry-alternate-bg: var(--gray3);
+	--list-entry-hover-bg: var(--gray4)
+}
+
+/*
+	cutebox
+	Copyright (C) 2021-2023 cutebox Authors admin@gotosocial.org
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU Affero General Public License for more details.
+
+	You should have received a copy of the GNU Affero General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/*
+   This stylesheets defines (color) variables to be used by other stylesheets on the page
+   postcss-custom-prop-vars will transpile these to css --variables
+*/
+
+/* Color definitions */
+
+/* Foreground */
+
+/* default text color, contrast >= 5.0 with all $grays */
+
+/* less important text, can be used with $gray1 (6.8), $gray2 (5.5), $gray3 (4.9), $gray4 (4.5) */
+
+/* Background shades, contrast >= 5.0 with $white1 (#fafaff) */
+
+/* Used for non-text accent colors, can be used as background: $gray1 for text color (contrast 4.6)*/
+
+/* hover/selected accent to $orange1, can be used with $gray1 (5.7), $gray2 (4.6) */
+
+/* darker blue for smaller elements (borders), can only be used with $gray1 (4.7) */
+
+/* all-round accent color, can be used with $gray1 (6.8), $gray2 (5.5), $gray3 (4.9), $gray4 (4.5) */
+
+/* hover/selected accent to $blue2, can be used with $gray1 (7.9), $gray2 (6.3), $gray3 (5.6), $gray4 (5.2), $gray5 (4.7) */
+
+/* Error border/foreground text, can be used with $error2 (5.0), $white1 (10), $white2 (5.1) */
+
+/* Error background text, can be used with $error1 (5.0), $gray1 (6.6), $gray2 (5.3), $gray3 (4.8) */
+
+/* Error button background text, can be used with $white1 (4.51) */
+
+/* Error link text, can be used with $error2 (5.56) */
+
+/* Green for positive/confirmation, similar contrast (luminance) as $blue2 */
+
+/* Color variables as used in a specific location */

@@ -1,0 +1,42 @@
+{{- /*
+// cutebox
+// Copyright (C) cutebox Authors admin@gotosocial.org
+// SPDX-License-Identifier: AGPL-3.0-or-later
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/ -}}
+
+{{ template "header.tmpl" .}}
+    <main>
+        <form action="/oauth/authorize" method="POST">
+            <h1>Hi {{.user}}!</h1>
+            <p>
+              Application <b>{{.appname}}</b> 
+              {{if len .appwebsite | eq 0 | not}}
+                ({{.appwebsite}}) 
+              {{end}}
+              would like to perform actions on your behalf, with scope <em>{{.scope}}</em>.
+            </p>
+            <p>The application will redirect to {{.redirect}} to continue.</p>
+            <p>
+                <button
+                    type="submit"
+                    style="width:200px;"
+                >
+                    Allow
+                </button>
+            </p>
+        </form>
+    </main>
+{{ template "footer.tmpl" .}}

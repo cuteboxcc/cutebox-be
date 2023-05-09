@@ -1,0 +1,87 @@
+{{- /*
+// cutebox
+// Copyright (C) cutebox Authors admin@gotosocial.org
+// SPDX-License-Identifier: AGPL-3.0-or-later
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/ -}}
+
+<div data-nosnippet class="contentgrid">
+	<a href="{{.Account.URL}}" class="avatar"><img src="{{.Account.Avatar}}" alt=""></a>
+	<a href="{{.Account.URL}}" class="displayname">{{if .Account.DisplayName}}{{emojify .Account.Emojis (escape .Account.DisplayName)}}{{else}}{{.Account.Username}}{{end}}</a>
+	<a href="{{.Account.URL}}" class="username">@{{.Account.Acct}}</a>
+	<div class="not-expanded">
+		<span class="date">{{.CreatedAt | timestamp}}</span>
+	</div>
+	<div class="text">
+		{{if .SpoilerText}}
+		<input class="spoiler" id="hideSpoiler-{{.ID}}" type="checkbox" style="display: none" aria-hidden="true" checked="true" />
+		<div class="spoiler">
+			<span class="spoiler-text">{{emojify .Emojis (escape .SpoilerText)}}</span>
+			<label class="button spoiler-label" for="hideSpoiler-{{.ID}}" tabindex="0">Toggle visibility</label>
+		</div>
+		{{end}}
+		<div class="content">
+			{{emojify .Emojis (noescape .Content)}}
+		</div>
+	</div>
+	{{with .MediaAttachments}}
+	<div class="media photoswipe-gallery {{(len .) | oddOrEven }}{{if eq (len .) 1}} single{{end}}{{if eq (len .) 2}} double{{end}}">
+		{{range .}}
+		<div class="media-wrapper">
+			{{if not .Description}}
+			<div class="no-image-desc" aria-hidden="true" ><i class="fa fa-info-circle"></i><span>Missing media description</span></div>
+			{{end}}	
+			<input type="checkbox" id="sensitiveMedia-{{.ID}}" class="sensitive-checkbox hidden" {{if not $.Sensitive}}checked{{end}}/>
+			<div class="sensitive">
+				<div class="open">
+					<label for="sensitiveMedia-{{.ID}}" class="button" role="button" tabindex="0">
+						<i class="fa fa-eye-slash" title="Hide sensitive media"></i>
+					</label>
+				</div>
+				<div class="closed" {{if .Description}}title="{{.Description}}"{{end}}>
+					<label for="sensitiveMedia-{{.ID}}" class="button" role="button" tabindex="0">Show sensitive media</label>
+				</div>
+			</div>
+			{{ if eq .Type "video" }}
+			<div class="video-play">
+				<span class="icon-span fa-stack" aria-hidden="true">
+					<i class="icon-bg fa fa-fw fa-circle fa-stack-1x"></i>
+					<i class="icon fa fa-fw fa-play-circle fa-stack-1x"></i>
+				</span>
+			</div>
+			{{ end }}
+			<a href="{{.URL}}"
+				 target="_blank"
+				 {{if .Description}}title="{{.Description}}"{{end}}
+				 data-pswp-width="{{.Meta.Original.Width}}px"
+				 data-pswp-height="{{.Meta.Original.Height}}px"
+				 {{if eq .Type "video"}}data-pswp-type="video"{{end}}
+				 data-cropped="true">
+				<img src="{{.PreviewURL}}" {{if .Description}}alt="{{.Description}}"{{end}} data-blurhash="{{.Blurhash}}"/>
+			</a>
+		</div>
+		{{end}}
+	</div>
+	{{end}}
+</div>
+<div class="info">
+	<div id="date">{{.CreatedAt | timestampPrecise}}</div>
+	<div class="stats">
+		<div id="replies"><i aria-label="Replies" class="fa fa-reply-all"></i> {{.RepliesCount}}</div>
+		<div id="boosts"><i aria-label="Boosts" class="fa fa-retweet"></i> {{.ReblogsCount}}</div>
+		<div id="favorites"><i aria-label="Favorites" class="fa fa-star"></i> {{.FavouritesCount}}</div>
+	</div>
+</div>
+<a data-nosnippet href="{{.URL}}" class="toot-link">View toot</a>

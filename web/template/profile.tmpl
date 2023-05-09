@@ -1,0 +1,97 @@
+{{- /*
+// cutebox
+// Copyright (C) cutebox Authors admin@gotosocial.org
+// SPDX-License-Identifier: AGPL-3.0-or-later
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/ -}}
+
+{{ template "header.tmpl" .}}
+<main>
+    <div class="profile">
+        <div class="headerimage">
+            {{ if .account.Header }}
+            <img
+                src="{{.account.Header}}"
+                alt="{{if .account.DisplayName}}{{.account.DisplayName}}{{else}}{{.account.Username}}{{end}}'s header"
+            />
+            {{ end }}
+        </div>
+        <div class="basic">
+            <div id="profile-basic-filler2"></div>
+            <a href="{{.account.Avatar}}" class="avatar"><img src="{{.account.Avatar}}" alt="{{if .account.DisplayName}}{{.account.DisplayName}}{{else}}{{.account.Username}}{{end}}'s avatar"></a>
+            <div class="displayname">{{if .account.DisplayName}}{{emojify .account.Emojis (escape .account.DisplayName)}}{{else}}{{.account.Username}}{{end}}</div>
+            <div class="usernamecontainer">
+                <div class="username">@{{ .account.Username }}@{{ .instance.AccountDomain }}</div>
+                {{- /* Only render account role if 1. it's present and 2. it's not equal to the standard 'user' role */ -}}
+                {{ if and (.account.Role) (ne .account.Role.Name "user") }}<div class="role {{ .account.Role.Name }}">{{ .account.Role.Name }}</div>{{ end }}
+            </div>
+        </div>
+        <div class="detailed">
+            <div class="bio">
+                {{ if .account.Note }}{{emojify .account.Emojis (noescape .account.Note)}}{{else}}This cutebox user hasn't written a bio yet!{{end}}
+            </div>
+        </div>
+        <div class="accountstats">
+            <div class="entry-group">
+                <div class="entry">Joined <b>{{.account.CreatedAt | timestampVague}}</b></div>
+                <div class="entry">Followed by <b>{{.account.FollowersCount}}</b></div>
+            </div>
+            <div class="entry-group">
+                <div class="entry">Following <b>{{.account.FollowingCount}}</b></div>
+                <div class="entry">Posted <b>{{.account.StatusesCount}}</b></div>
+            </div>
+        </div>
+    </div>
+        {{ if .pinned_statuses }}
+        <h2 id="pinned">
+            <span>Pinned toots</span>
+        </h2>
+        <div class="thread">
+            {{ range .pinned_statuses }}
+            <div class="toot expanded">
+                {{ template "status.tmpl" .}}
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+    <h2 id="recent">
+        <span>Latest public toots</span>
+        {{ if .rssFeed }}
+            <a href="{{ .rssFeed }}" aria-label="RSS feed">
+                <i class="rss-icon fa fa-rss-square" aria-hidden="true"></i>
+            </a>
+        {{ end }}
+    </h2>
+	    {{ if not .statuses }}
+        <div data-nosnippet class="nothinghere">Nothing here!</div>
+        {{ else }}
+        <div class="thread">
+            {{ range .statuses }}
+            <div class="toot expanded">
+                {{ template "status.tmpl" .}}
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+    <div class="backnextlinks">
+        {{ if .show_back_to_top }}
+        <a href="/@{{ .account.Username }}">Back to top</a>
+        {{ end }}
+        {{ if .statuses_next }}
+        <a href="{{ .statuses_next }}" class="next">Show older</a>
+        {{ end }}
+    </div>
+</main>
+{{ template "footer.tmpl" .}}
