@@ -31,7 +31,7 @@ Raspberry Pi images coming soon which should make deployment even easier.
 * Clone the backend: `git clone https://github.com/cuteboxcc/cutebox-be /cutebox`
 * Go into the cutebox-be directory: `cd /cutebox`
 * Edit the configuration file so it fits with your domain name etc.
-* Test if it runs: ./cutebox --config-path ./config.yaml server start
+* Test if it runs: `./cutebox --config-path ./config.yaml server start`
 * Open your browser on your domain name to see if you get redirected to the backend. If it fails check for any errors.
 * Press Ctrl-C to quit the server for now
 
@@ -44,7 +44,7 @@ sudo useradd -r cutebox
 sudo groupadd cutebox
 sudo usermod -a -G cutebox cutebox
 sudo chown -R cutebox:cutebox /cutebox
-sudo cp /cutebox/example/cutebox.service /etc/systemd/system/
+sudo cp /cutebox/cutebox.service /etc/systemd/system/
 sudo systemctl enable --now cutebox
 ```
 
