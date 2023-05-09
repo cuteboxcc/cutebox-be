@@ -28,6 +28,7 @@ Raspberry Pi images coming soon which should make deployment even easier.
 * Copy the `Caddyfile` to `/etc/caddy/Caddyfile` and replace `cutebox.cc` with your domain name
 * Start, enable and reload the caddy server `sudo systemctl enable --now caddy && sudo systemctl reload caddy`
 * Deploy [this](https://github.com/cuteboxcc/cutebox) repository to Netlify. This is the frontend which MUST reside in `web.YOURDOMAIN.TLD`. Replace `YOURDOMAIN.TLD` with your own domain name.
+* Once deployment is finished on Netlify it should have detected a form. Configure the form so you can receive account requests.
 * Clone the backend: `git clone https://github.com/cuteboxcc/cutebox-be /cutebox`
 * Go into the cutebox-be directory: `cd /cutebox`
 * Edit the configuration file so it fits with your domain name etc.
@@ -67,3 +68,7 @@ That's it! Have fun with your new server.
 ## Admin CLI
 
 Refer to the [GoToSocial](https://docs.gotosocial.org/en/latest/admin/cli/) documentation on how to use the admin CLI.
+
+## Updating
+
+To update to the latest cutebox-be release run `cd /cutebox && git pull`. The frontend receives automatic updates.
