@@ -14,6 +14,7 @@ Raspberry Pi images coming soon which should make deployment even easier.
 
 ### Requirements
 
+* Intermediate computer knowledge
 * A x86_64 Linux machine to run the server on
 * An open port (80 and 443) in your firewall
 * Ideally SSH access to the server (will make copying- and pasting commands easier)
