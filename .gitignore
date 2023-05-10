@@ -1,4 +1,4 @@
 storage
-config.yml
-config.dev.yml
-sqlite.db
+config.yaml
+config.dev.yaml
+sqlite.db*
