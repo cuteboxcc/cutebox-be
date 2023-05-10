@@ -1,3 +1,4 @@
 storage
 config.yml
+config.dev.yml
 sqlite.db
