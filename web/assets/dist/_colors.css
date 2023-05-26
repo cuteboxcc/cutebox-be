@@ -2,7 +2,7 @@
 :root {
 	--white1: #fafaff;
 	--white2: #b3b5c6;
-	--gray1: #212529;
+	--gray1: #2a2b2f;
 	--gray2: #35363b;
 	--gray3: #3a3b41;
 	--gray4: #45464e;
@@ -10,12 +10,12 @@
 	--gray6: #575861;
 	--gray7: #5d5e67;
 	--gray8: #696a75;
+	--accent: #20c997;
 	--orange1: var(--accent);
 	--orange2: var(--accent);
-	--blue1: #3a9fde;
-	--blue2: #66befe;
-	--blue3: #89caff;
-	--accent: #20c997;
+	--blue1: var(--accent);
+	--blue2: var(--accent);
+	--blue3: var(--accent);
 	--error1: #860000;
 	--error2: #ff9796;
 	--error3: #dd2c2c;
@@ -28,49 +28,58 @@
 	--bg: var(--gray1);
 	--bg-trans: rgba(77, 78, 86, 0.62);
 	--bg-accent: var(--gray5);
-	--fg-accent: var(--accent);
+	--fg-accent: var(--blue3);
 	--fg-reduced: var(--white2);
-	--border-accent: var(--accent);
+	--border-accent: var(--orange2);
 	--link-fg: var(--fg-accent);
-	--role-moderator: var(--accent);
-	--role-admin: var(--accent);
-	--button-bg: var(--accent);
+	--role-admin: var(--orange2);
+	--role-mod: var(--blue2);
+	--profile-bg: var(--gray4);
+	--button-bg: var(--blue2);
 	--button-fg: var(--gray1);
-	--button-hover-bg: var(--accent);
+	--button-hover-bg: var(--blue3);
 	--button-danger-bg: var(--error3);
 	--button-danger-fg: var(--white1);
 	--button-danger-hover-bg: var(--error2);
+	--toot-bg: var(--gray3);
+	--toot-info-bg: var(--gray2);
 	--toot-focus-bg: var(--gray5);
-	--toot-unfocus-bg: var(--gray2);
-	--toot-info-bg: var(--gray4);
-	--no-img-desc-bg: var(--accent);
+	--toot-focus-info-bg: var(--gray4);
+	--no-img-desc-bg: var(--orange1);
 	--no-img-desc-fg: var(--gray1);
 	--bg-sensitive: var(--gray1);
 	--boxshadow: 0 0.4rem 1rem -0.1rem rgba(0,0,0,0.15);
 	--boxshadow-border: 0.08rem solid var(--gray1);
-	--avatar-border: var(--accent);
+	--avatar-border: var(--orange2);
 	--input-bg: var(--gray4);
 	--input-disabled-bg: var(--gray2);
 	--input-border: var(--blue1);
 	--input-error-border: var(--error3);
-	--input-focus-border: var(--accent);
+	--input-focus-border: var(--blue3);
 	--settings-nav-bg: var(--bg);
-	--settings-nav-header-fg: var(--accent);
+	--settings-nav-header-fg: var(--orange2);
 	--settings-nav-bg-hover: var(--gray3);
 	--settings-nav-fg-hover: var(--fg);
-	--settings-nav-bg-active: var(--accent);
+	--settings-nav-bg-active: var(--blue3);
 	--settings-nav-border-active: var(--info-bg);
 	--settings-nav-fg-active: var(--gray2);
 	--error-fg: var(--error1);
 	--error-bg: var(--error2);
 	--list-entry-bg: var(--gray2);
 	--list-entry-alternate-bg: var(--gray3);
-	--list-entry-hover-bg: var(--gray4)
+	--list-entry-hover-bg: var(--gray4);
+	--plyr-color-main: var(--orange2);
+	--plyr-video-background: var(--bg-accent);
+	--plyr-badge-background: var(--bg-accent);
+	--plyr-video-controls-background: var(--bg-accent);
+	--plyr-badge-text-color: var(--fg);
+	--plyr-badge-border-radius: var(--br);
+	--plyr-video-progress-buffered-background: var(--gray8)
 }
 
 /*
-	cutebox
-	Copyright (C) 2021-2023 cutebox Authors admin@gotosocial.org
+	GoToSocial
+	Copyright (C) 2021-2023 GoToSocial Authors admin@gotosocial.org
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU Affero General Public License as published by
@@ -122,3 +131,5 @@
 /* Green for positive/confirmation, similar contrast (luminance) as $blue2 */
 
 /* Color variables as used in a specific location */
+
+/* Plyr video player */

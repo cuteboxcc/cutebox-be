@@ -29,10 +29,9 @@
 			{{.instance.ShortDescription |noescape}}
 		</div>
 	</section>
-	<section class="lightgray">
-		<p>
-			cutebox does not provide its own webclient, but implements the Mastodon client API.
-			You can use this server through the official web client that came with your installation.
+	<section class="apps">
+		<p style="text-align:center;">
+			<button onclick="javascript:location.href=location.href.split('/')[0]+'//web.'+location.href.split('/')[2]">Launch web interface</button>
 		</p>
 	</section>
 </main>
